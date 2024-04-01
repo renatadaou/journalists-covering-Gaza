@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Are Journalists Covering Stories in Gaza?</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-size: 20px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    .content {
+      max-width: 640px;
+      margin: auto;
+    }
+
+    .header {
+      padding: 3em 0;
+    }
+
+    a {
+      color: #f05349;
+    }
+
+    .footer {
+      background: #f4f4f4;
+      text-align: center;
+      font-size: 0.8em;
+      margin-top: 4em;
+      padding: 4em 0;
+    }
+
+    figure {
+      margin: 0;
+      padding-bottom: 1.2em;
+    }
+
+    figcaption {
+      font-size: 0.8em;
+      text-align: center;
+      margin-top: 0.5em;
+      color: #666;
+    }
+
+    h1 {
+      font-family: 'Lora', Georgia, serif;
+      font-weight: bold;
+      font-size: 3em;
+      line-height: 1.1;
+    }
+
+    .subhead {
+      font-family: 'Lora', Georgia, serif;
+    }
+
+    iframe,
+    img,
+    video {
+      max-width: 100%;
+    }
+
+    p {
+      line-height: 1.6;
+      margin: 0;
+      padding-bottom: 1.2em;
+    }
+
+    ul {
+      margin: 0;
+      padding-bottom: 1em;
+      line-height: 1.6;
+    }
+
+    iframe {
+      padding-bottom: 1.2em;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      background: #fff880;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        font-size: 18px;
+      }
+
+      .content {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+      }
+
+      .juxtapose {
+        max-width: 100%;
+      }
+    }
+  </style>
+  <link href="scrolly-styles.css" rel="stylesheet">
+  <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/scrolly-video@latest/dist/scrolly-video.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+</head>
+
+<body>
+  <div class="content">
+    <div class="header">
+      <h1>How Are Journalists Covering Stories in Gaza?</h1>
+      <p class="subhead">Since October 7, the conflicts in the Gaza Strip have consistently made headlines. Journalists have employed various methods to report on the conflict, including on-the-ground coverage, exploration of related themes, and utilization of open-source intelligence techniques.</p>
+    </div>
+    <div class="byline">
+      <p>By <a href="https://github.com/renatadaou">Renata Daou</a> | March 31, 2024</p>
+    </div>
+  </div>
+
+  <div class="content">
+    <h2>Open-Source Intelligence Techniques</h2>
+    <p>Open-Source Intelligence (OSINT) have emerged as a primary method of reporting on the conflict in Gaza due to blockades preventing journalists from accessing the area and the hazardous conditions on the ground. Consequently, many journalists have turned to satellite imagery, as well as photos and videos shared on social media, to gain insights into the situation in Gaza.</p>
+    <p>OSINT plays a crucial role in geolocation, allowing journalists to pinpoint the precise locations where a particular video or picture shared on social media was captured. By analyzing various elements within the visual content, such as landmarks, geographical features, or street signs, journalists can accurately identify the locations depicted in the media. Navigating this issue can be challenging due to <a href= "https://www.npr.org/2023/11/16/1212889717/satellite-images-us-israel-gaza" >federal laws that impose restrictions on the quality of commercial satellite imagery that U.S. companies are permitted to sell </a>, particularly if the images portray Israel and Israeli-occupied Palestinian territories like Gaza.
+    </p>
+
+    <p>However, the use of these techniques necessitates rigorous verification, fact-checking, and ethical coverage of the visual content employed. This is essential to ensure the accuracy of information and to mitigate the spread of disinformation, propaganda, and misinformation, which has been common with many videos and pictures that became viral on social media platforms like X (formerly Twitter) and TikTok.</p>
+    <p>An example would be this New York Times video, which focused on an Israeli military video revealing the chaotic scene that resulted in mass casualties as people gathered around food aid trucks in northern Gaza.</p>
+    <iframe title="New York Times Video - Embed Player" width="480" height="321" frameborder="0" scrolling="no" allowfullscreen="true" marginheight="0" marginwidth="0" id="nyt_video_player" src="https://www.nytimes.com/video/players/offsite/index.html?videoId=100000009336313"></iframe>
+    <p>Haley Willis, a reporter with The New York Times working on the Visual Investigations team, specializes in analyzing visual evidence sourced from various platforms, including social media, security camera footage, and satellite imagery.</p>
+  </div>
+
+  <section id="scrolly-video" class="scrolly-container">
+    <div class="sticky-thing">
+      <video muted="muted" id="videoElement" style="width: 100%; height: auto;"></video>
+    </div>
+    <div class="steps-container">
+      <div class="step" id="step-first">
+        <p>The main focus of the investigation conducted by the NYT team revolved around a video released by the Israeli military, which I accessed via <a href="https://www.google.com/url?q=https://www.google.com/url?q%3Dhttps://videoidf.azureedge.net/1d710ee2-8ddd-4146-9e07-6dd6d5960c27%26sa%3DD%26source%3Ddocs%26ust%3D1711811904525253%26usg%3DAOvVaw3ad1nEYSUNQ4RZZp0HUvva&sa=D&source=docs&ust=1711812140777567&usg=AOvVaw3iryLZL8qGYOuaevxVneUy"> videoidf.azureedge.net. </a> In this footage, a large group of people is seen surrounding trucks before dispersing. The New York Times investigations team analyzed and described the events depicted in the video, which initially appeared unclear or difficult to interpret.
+        </p>
+      </div>
+      <div class="step" id="step-second">
+        <p>2 “Quote coming - interview next week, sorry”</p>
+      </div>
+      <div class="step" id="step-third">
+        <p>Haley’s interview  </p>
+      </div>
+      <div class="step" id="step-fourth">
+        <p>“Quote coming - interview next week, sorry”</p>
+      </div>
+      <div class="step" id="step-fifth">
+        <p> Conclusions through Haley’s interview</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="content">
+    <div style="margin-top: 50px;"></div>
+    <h2>Related Themes</h2>
+  </div>
+
+  <div class = "content">
+    <p>Journalists worldwide have innovatively covered topics related to the Gaza conflict from their homes, showcasing the interconnectedness of global events. Coverage extends from exploring Palestinian identity and addressing antisemitism to reporting on protests, demonstrating the breadth of issues surrounding the conflict.
+    </p>
+
+    <p>Adam Rayes and Briana Rice, journalists for Michigan Public Radio, wrote a piece that reflected <a href="https://www.michiganpublic.org/community/2024-03-07/no-easy-trip-home-how-palestinian-americans-are-making-sense-of-their-identity-right-now">identity in Michigan. </a> In their piece, they cover Palestinian-Americans, their connections to the conflict, and their struggles with identity, heritage, and the pain of intergenerational trauma. Rice says that they wanted to do a story about census data in the area. They wanted to know how many Palestinians there were. They interviewed people from Dearborn, Detroit, an area known for having a large Arab population, but they also wanted to capture the people who were not counted on the census data.
+    </p>
+
+    <p>“What does it mean to be Palestinian right now?” she said. “That's kind of how we approached it. We wanted to know from different generations. And I think older generations were a little more hesitant to talk about this, and rightfully so. It's been a lot more dangerous for them.”
+</p>
+
+    <p>Covering issues related to Gaza and Palestinian identity has been a hard task. She reflects, "I think they're like really hard conversations, honestly. I think to talk about identity and give space to talk about Gaza and politics but try to make sure that we're keeping it about identity and home and like what it means to be Palestinian."
+</p>
+<P>Rayes shares a similar sentiment, drawing parallels to his own experiences as a Syrian-American. He remarks, "I am Syrian and with the civil war there and sort of being born here and having never been able to visit and just sort of like watching all that unfold." Rayes emphasizes the shared trauma and survivor’s guilt he feels with Palestinians, despite the differences in their experiences. Their journalistic journey involves not only uncovering stories but also navigating personal trauma. 
+</P>
+<p>"I was constantly afraid that I was going to be falling short of just making sure that these people felt well represented because I know what it feels like, to be sort of portrayed in this way, that it's just you only exist in the context of violence, right?” He said. “And you only get to talk about it in that context."</p>
+
+  </div>
+
+  <section id="scrolly-images" class="scrolly-container">
+    <div class="sticky-thing">
+        <img src="mprnew.jpg" style="width: 100%; height: auto; display: none;" id="scrolly-image">
+        <video id="scrollyVideo" muted style="width: 100%; height: auto; display: none;">
+            <source src="MVI_7958.MP4" type="video/mp4">
+        </video>
+    </div>
+    <div class="steps-container">
+      <div class="step" id="step1">
+        <div>
+<p> "It is just how rare this sort of space is for Palestinians right now,” Rayes said. “ We kept on walking away from every interview and every person would thank us and say ‘there's just like no space for me to have this sort of conversation right now.’"
+</p>
+
+<p>Despite the challenges, Rice found hope in the human connection forged through their reporting. "I will remember [this experience] forever. I was surprised constantly by the people."
+</p>
+        </div>
+      </div>
+      <div class="step" id="step2">
+        <p><a href= "https://www.dallasnews.com/news/education/2024/03/27/gov-abbott-issues-executive-order-fighting-antisemitism-at-texas-colleges/#:~:text=The%20order%20requires%20all%20public,include%20the%20definition%20of%20antisemitism">Governor Greg Abbott issued an executive order aimed at addressing a perceived increase in antisemitism at Texas colleges and universities. </a> The order mandates a review of free speech policies to combat antisemitic rhetoric, distribution of grant funding for security enhancements among Jewish organizations, and cessation of purchasing goods from the Gaza Strip. While praised by some, critics argue it could impede free speech and unfairly equate criticism of Israeli policies with antisemitism. Colleges have 90 days to revise policies, amidst nationwide tensions following the Gaza conflict. Federal efforts to combat antisemitism and Islamophobia are also noted, including discussions and resources provided by the Department of Education. Valeria Olivares did not reply to my request for comment on the article. </p>
+      </div>
+      <div class="step" id="step3">
+        <p>Protesters in favor of Israel at Times Square, in New York City, on October 8, 2023. The protest was organized by the Jews of New York in response to the protest in favor of Palestine. Many protestors chanted against the attacks and kidnappings that happened in Israel. New York City has the largest Jewish population outside of Israel. </p>
+      </div>
+      <div class="step" id="step4">
+        <p>Protesters in favor of Palestine at Times Square, in New York City, on October 13, 2023. The protest was organized by the Palestinian Youth Movement of New York City. They protested against the blockade of Gaza and the Israeli treatment of Palestinians, as well as the creation of a Palestinian State.</p>
+      </div>
+      <div class="step" id="step5">
+        <p>One of the primary methods for journalists to understand public sentiment regarding the war in Gaza is by covering manifestations, such as protests, both in the United States and globally. Through conducting interviews with participants, journalists gain insights into the motivations driving individuals to protest and their personal connections to the conflict. This approach provides a deeper understanding of public perceptions and sentiments surrounding the ongoing events in Gaza.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="content">
+    <div style="margin-top: 50px;"></div>
+  <h2>On The Ground Reporting</h2>
+ <p>One significant avenue through which people obtain news from Gaza is via Gazan journalists who have amassed millions of followers on social media platforms like Instagram and Tik Tok. This form of first-person journalism, primarily consumed by the younger generation, has surged in popularity. It serves as an alternative for a population with high levels of distrust towards more traditional news media companies, offering viewers a more intimate narrative directly from sources they can better identify with.</p>
+
+ <p>Motaz Azaiza, a Palestinian photojournalist from Gaza, gained prominence for his coverage of the Israel–Hamas war, amassing a substantial following on social media, reaching 18.3M followers as of March, 2024. In 2023, he earned the title of <a href="https://www.gqmiddleeast.com/men-of-the-year/shop-gq-motaz-azaiza-man-of-the-year#:~:text=That%20is%20why%2C%20the%20team,ones%20that%20we%20don't">Man of the Year from GQ Middle East </a>, and one of his photographs of a girl stuck under her house rubble after it was bombed by Israeli airstrikes at the Al Nusairat refugee camp  was honored as one of <a href= "https://time.com/6337364/top-100-photos-2023/Time's">top 10 photos of 2023. </a> </p>
+<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/CyvUkvWsJC_/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/CyvUkvWsJC_/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/CyvUkvWsJC_/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Motaz Azaiza مُعْتَز عزايزة ⚡️ (@motaz_azaiza)</a></p></div></blockquote> <script async src="https://www.instagram.com/embed.js"></script>
+ 
+<p>Plestia Alaqad is a Palestinian journalist and poet originally from Gaza, now residing in Melbourne, Australia. She rose to prominence after sharing a video capturing her neighborhood being struck by airstrikes, depicting the resulting fog. Her social media presence has since surged to 4.7 million followers. Her Instagram account, previously reflecting an ordinary girl's life, now showcases the impact of war.
+</p>
+<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/CzB5fjYM3iu/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/CzB5fjYM3iu/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/CzB5fjYM3iu/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Plestia Alaqad | بلستيا العقاد (@byplestia)</a></p></div></blockquote> <script async src="https://www.instagram.com/embed.js"></script>
+
+<p> 
+    On-the-ground reporting in Gaza has also exacted a significant toll on those in the area. According to the <a href= "https://cpj.org/2024/03/journalist-casualties-in-the-israel-gaza-conflict/#:~:text=As%20of%20March%2028%2C%202024,and%201%2C200%20deaths%20in%20Israel"> Committee to Protect Journalists (CPJ) </a>, as of March 30, 2024, CPJ's preliminary investigations revealed that at least 95 journalists and media workers were among the more than 33,000 individuals killed since the war began on October 7. Of the 95 journalists confirmed dead, 90 were Palestinian, 2 were Israeli, and 3 were Lebanese. Additionally, other journalists have been reported missing, injured, arrested, or subjected to multiple assaults, threats, cyberattacks, censorship, and even experienced the killings of family members.
+    </p>
+</div>
+
+  
+  <script>
+    new ScrollyVideo({
+      scrollyVideoContainer: document.querySelector("#scrolly-video .sticky-thing"),
+      src: "videoidf.mp4",
+      full: true,
+    });
+  </script>
+
+    <script>
+  
+        const scroller = scrollama();
+        scroller.setup({
+            step: ".step",
+            offset: 0.5,
+            progress: true,
+            debug: false
+        }).onStepEnter(handleStepEnter);
+    
+        function handleStepEnter(response) {
+            // Handle image and video switching logic
+            const stepId = response.element.id;
+            const imgElement = document.getElementById('scrolly-image');
+            const videoElement = document.getElementById('scrollyVideo');
+            
+            switch(stepId) {
+                case 'step1':
+                    imgElement.src = 'mprnew.jpg';
+                    imgElement.style.display = 'block';
+                    videoElement.style.display = 'none';
+                    break;
+                case 'step2':
+                    imgElement.src = 'dallasnew.jpg';
+                    break;
+                case 'step3':
+                    imgElement.src = 'IMG_7896.JPG';
+                    break;
+                case 'step4':
+                    imgElement.src = 'IMG_8006.jpg';
+                    break;
+                case 'step5':
+                    imgElement.style.display = 'none';
+                    videoElement.style.display = 'block';
+                    videoElement.play();
+                    break;
+            }
+        }
+    </script>
+      
+      
+  </script>
+  <style>
+    .step {
+      margin-bottom: 70vh;
+    }
+  </style>
+
+</body>
+
+</html>
